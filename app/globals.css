@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/* Light theme colors */
+:root { --bg:#eef1f6; 
+     --surface:#ffffff;
+      --ink:#14213d; 
+      --muted:#5a6684; 
+      --line:#d3d9e6; 
+      --accent:#2f4bff; 
+    }
+
+/* Dark theme colors */
+[data-theme="dark"]
+ { --bg:#0d1220; 
+  --surface:#151c30; 
+  --ink:#e8ecf7;
+   --muted:#9aa5c4; 
+   --line:#27304a;
+    --accent:#7f93ff; }
+
+/* Lets Tailwind use our colors, e.g. bg-surface, text-muted */
+@theme inline {
+  --color-bg: var(--bg); --color-surface: var(--surface); --color-ink: var(--ink);
+  --color-muted: var(--muted); --color-line: var(--line); --color-accent: var(--accent);
+  --font-display: var(--font-bricolage); --font-sans: var(--font-hanken);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-sans), system-ui, sans-serif; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Soft glow behind the hero */
+.hero-glow {
+  background: radial-gradient(ellipse at top, var(--accent), transparent 65%);
+  opacity: 0.14;
+}
+
+/* Fade-in when the page loads */
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise 0.8s ease both; }
+.rise-2 { animation-delay: 0.15s; }
+.rise-3 { animation-delay: 0.3s; }
+
+/* Respect people who turn animations off */
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .rise { animation: none; } }
