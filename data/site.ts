@@ -3,7 +3,7 @@ export const site = {
   role: "Front End Developer",
   github: "imrankhan0503",
   linkedin: "https://www.linkedin.com/in/imrankhan0505",
-  cv: "cv.pdf",
+  cv: "/Imran_Khan_CV.pdf",
   status: "Open to opportunities", // change or delete this line's text anytime
   tagline: "I build fast, accessible and responsive websites with React and Next.js.",
   about:
